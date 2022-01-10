@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Exhibition Venues" icon-name="standard:activation_target">
+        <ul class="slds-m-around_medium">
+            <template for:each={exhibitionVenues.data} for:item="exhibitionVenue">
+                <li key={exhibitionVenue.Id}>
+                    {exhibitionVenue.Name}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+    
+</template>

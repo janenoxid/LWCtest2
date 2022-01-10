@@ -15,7 +15,7 @@ public with sharing class ProjectController {
             FROM Opportunity
             WHERE Project_Type__c = 'Exhibition Venue'
             ORDER BY Name
-            LIMIT 50 // this is okay to keep for tests, but will need to remove later.
+            LIMIT 20 // this is okay to keep for tests, but will need to remove later.
         ];
     } // Don't forget!! You can test out SOQL queries in the Developer Console to more easily make sure they work here.
     
@@ -34,7 +34,7 @@ public with sharing class ProjectController {
             FROM Opportunity
             WHERE Project_Type__c = 'Exhibition Organizer'
             ORDER BY Name
-            LIMIT 50 
+            LIMIT 20 
         ];
     }
 
