@@ -14,7 +14,7 @@ public with sharing class ProjectController {
                 OwnerId
             FROM Opportunity
             WHERE Project_Type__c = 'Exhibition Venue'
-            ORDER BY Name
+            ORDER BY StartDate_Formula__c
             LIMIT 20 // this is okay to keep for tests, but will need to remove later.
         ];
     } // Don't forget!! You can test out SOQL queries in the Developer Console to more easily make sure they work here.
@@ -75,6 +75,32 @@ public with sharing class ProjectController {
             WHERE Project_Type__c = 'Exhibition Venue' AND StageName != 'In Conversation' AND StageName != 'Canceled' AND StageName != 'Ineligible'
             ORDER BY Name
             LIMIT 50 
+        ];
+    }
+
+    @AuraEnabled(Cacheable=true)
+    public static Opportunity[] getEarliestVenueDate(){
+        return [
+            SELECT 
+                Id, 
+                StartDate_Formula__c
+            FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Venue' AND StartDate_Formula__c != null
+            ORDER BY StartDate_Formula__c
+            LIMIT 1
+        ];
+    }
+
+    @AuraEnabled(Cacheable=true)
+    public static Opportunity[] getLastestVenueDate(){
+        return [
+            SELECT 
+                Id, 
+                EndDate_Formula__c
+            FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Venue' AND EndDate_Formula__c != null
+            ORDER BY EndDate_Formula__c DESC
+            LIMIT 1
         ];
     }
 
