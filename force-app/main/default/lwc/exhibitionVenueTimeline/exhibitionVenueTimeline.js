@@ -3,7 +3,7 @@ import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import getAllExhibitionVenues from '@salesforce/apex/ProjectController.getAllExhibitionVenues';
 import getAllExhibitions from '@salesforce/apex/ProjectController.getAllExhibitions';
-import D3 from '@salesforce/resourceUrl/D3'
+import D3 from '@salesforce/resourceUrl/d3file'
 
 //* Does not Work yet /*
 // Using for reference: http://sanjaykeynotes.blogspot.com/2020/12/salesforce-lwc-with-third-party-js-d3.html

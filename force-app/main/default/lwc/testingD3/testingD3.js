@@ -1,6 +1,7 @@
+import { LightningElement, wire } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { loadScript, loadStyle } from 'lightning/platformResourceLoader';
-import D3 from '@salesforce/resourceUrl/d3';
+import D3 from '@salesforce/resourceUrl/d3file';
 
 export default class TestingD3 extends LightningElement {
     svgWidth = 400;
@@ -13,12 +14,14 @@ export default class TestingD3 extends LightningElement {
         this.d3Initialized = true;
 
         Promise.all([
-            loadScript(this, D3 + '/package/dist/d3.min.js'),
+            loadScript(this, D3 + '/d3.min.js'),
         ])
             .then(() => {
+                console.log("It worked!")
                 this.initializeD3();
             })
             .catch(error => {
+                console.log("There's an error")
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Error loading D3',

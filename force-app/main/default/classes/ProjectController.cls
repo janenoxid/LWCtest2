@@ -11,10 +11,11 @@ public with sharing class ProjectController {
                 StageName,
                 StartDate_Formula__c,
                 EndDate_Formula__c,
+                CloseDate,
                 OwnerId
             FROM Opportunity
             WHERE Project_Type__c = 'Exhibition Venue'
-            ORDER BY StartDate_Formula__c
+            ORDER BY StartDate_Formula__c ASC NULLS LAST
             LIMIT 20 // this is okay to keep for tests, but will need to remove later.
         ];
     } // Don't forget!! You can test out SOQL queries in the Developer Console to more easily make sure they work here.

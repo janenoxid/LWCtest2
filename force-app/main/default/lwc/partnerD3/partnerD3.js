@@ -1,6 +1,6 @@
 import { LightningElement, wire } from 'lwc';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
-import D3 from '@salesforce/resourceUrl/D3'
+import D3 from '@salesforce/resourceUrl/d3file'
 import getAllPartners from '@salesforce/apex/AccountController.getAllPartners';
 
 export default class PartnerD3 extends LightningElement {

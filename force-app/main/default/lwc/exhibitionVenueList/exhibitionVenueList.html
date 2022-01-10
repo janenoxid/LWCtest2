@@ -3,10 +3,10 @@
         <ul class="slds-m-around_medium">
             <template for:each={exhibitionVenues.data} for:item="exhibitionVenue">
                 <li key={exhibitionVenue.Id}>
-                    {exhibitionVenue.Name}
+                    <b>{exhibitionVenue.Name}</b>, {exhibitionVenue.Account.Location__c}
+                    <p>{exhibitionVenue.StartDate_Formula__c} to {exhibitionVenue.EndDate_Formula__c} ({exhibitionVenue.StageName})</p>
                 </li>
             </template>
         </ul>
     </lightning-card>
-    
 </template>
