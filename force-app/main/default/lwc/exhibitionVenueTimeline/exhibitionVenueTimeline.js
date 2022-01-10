@@ -25,7 +25,7 @@ export default class ExhibitionVenueTimeline extends LightningElement {
         this.d3Initialized = true;
 
         Promise.all([
-            loadScript(this, D3 + '/d3.main'),
+            loadScript(this, D3 + '/package/dist/d3.min.js'),
         ])
             .then(() => {
                 this.initializeD3();
