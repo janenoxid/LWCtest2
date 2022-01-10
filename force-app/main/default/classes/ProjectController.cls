@@ -5,24 +5,73 @@ public with sharing class ProjectController {
             SELECT
                 Id,
                 Name,
-                AccountId,
                 Account.Name,
                 Account.Location__c,
-                EndDate_Formula__c,
-                Exhibition__c, // not sure how to get the name of the Exhibition from here. There are multiple lookup fields on project/opportunity to other projects.
-                OwnerId,
+                Exhibition__r.Name, 
                 StageName,
                 StartDate_Formula__c,
-                // Supervisor__r.Name  ------> keeping this here as a reminder of how custom relationships need to be set up.
+                EndDate_Formula__c,
+                OwnerId
             FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Venue'
             ORDER BY Name
             LIMIT 50 // this is okay to keep for tests, but will need to remove later.
         ];
-    }
+    } // Don't forget!! You can test out SOQL queries in the Developer Console to more easily make sure they work here.
     
-    // public ProjectController() {  ----> This was standard when I created the controller. Keeping it here in case I want to use it, butI'm not sure I will. 
+    public static Opportunity[] getAllExhibitions(){
+        return [
+            SELECT
+                Id,
+                Name,
+                Account.Name,
+                Account.Location__c,
+                StageName,
+                EndDate_Formula__c,
+                StartDate_Formula__c,
+                OwnerId
+            FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Organizer'
+            ORDER BY Name
+            LIMIT 50 
+    }
 
-    // }
+    public static Opportunity[] getAllNotCanceledVenues(){
+        return [
+            SELECT
+                Id,
+                Name,
+                Account.Name,
+                Account.Location__c,
+                Exhibition__r.Name, 
+                StageName,
+                StartDate_Formula__c,
+                EndDate_Formula__c,
+                OwnerId
+            FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Venue' AND StageName != 'Canceled' AND StageName != 'Ineligible'
+            ORDER BY Name
+            LIMIT 50 
+    }
+
+    public static Opportunity[] getAllConfirmedVenues(){
+        return [
+            SELECT
+                Id,
+                Name,
+                Account.Name,
+                Account.Location__c,
+                Exhibition__r.Name, 
+                StageName,
+                StartDate_Formula__c,
+                EndDate_Formula__c,
+                OwnerId
+            FROM Opportunity
+            WHERE Project_Type__c = 'Exhibition Venue' AND StageName != 'In Conversation' AND StageName != 'Canceled' AND StageName != 'Ineligible'
+            ORDER BY Name
+            LIMIT 50 
+    }
+
 }
 
 

@@ -5,7 +5,6 @@ public with sharing class AccountController {
             SELECT
                 Id,
                 Name,
-                AccountId,
                 Location__c,
                 Tax_Exempt_State__c
             FROM Account
