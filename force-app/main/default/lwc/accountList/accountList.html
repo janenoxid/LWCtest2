@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Accounts" icon-name="standard:store_group">
+        <ul class="slds-m-around_medium">
+            <template for:each={accounts.data} for:item="account">
+                <li key={account.Id}>
+                    <b>Account:</b> {account.Name}, <b>Location: </b>{account.Location__c}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+    
+</template>

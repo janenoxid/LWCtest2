@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Partners" icon-name="custom:custom103">
+        <ul class="slds-m-around_medium">
+            <template for:each={partners.data} for:item="partner">
+                <li key={partner.Id}>
+                    {partner.Name}, <b>Location: </b>{partner.Location__c}, <b>Date of Partnership: </b>{partner.Date_of_Partnership__c}
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+    
+</template>
