@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Exhibitions" icon-name="utility:classic_interface">
+        <ul class="slds-m-around_medium">
+            <template for:each={exhibitions.data} for:item="exhibition">
+                <li key={exhibition.Id}>
+                    <b>Exhibition:</b> {exhibition.Name}, <b>Organizer: </b>{exhibition.Account.Name}
+                </li> <!-- Okay... I think... maybe I've got a start here? Not for sure if exhibitions.data will work...? -->
+            </template>
+        </ul>
+    </lightning-card>
+    
+</template>

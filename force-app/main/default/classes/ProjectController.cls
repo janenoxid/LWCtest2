@@ -19,6 +19,7 @@ public with sharing class ProjectController {
         ];
     } // Don't forget!! You can test out SOQL queries in the Developer Console to more easily make sure they work here.
     
+    @AuraEnabled(Cacheable=true)
     public static Opportunity[] getAllExhibitions(){
         return [
             SELECT
@@ -34,8 +35,10 @@ public with sharing class ProjectController {
             WHERE Project_Type__c = 'Exhibition Organizer'
             ORDER BY Name
             LIMIT 50 
+        ];
     }
 
+    @AuraEnabled(Cacheable=true)
     public static Opportunity[] getAllNotCanceledVenues(){
         return [
             SELECT
@@ -52,8 +55,10 @@ public with sharing class ProjectController {
             WHERE Project_Type__c = 'Exhibition Venue' AND StageName != 'Canceled' AND StageName != 'Ineligible'
             ORDER BY Name
             LIMIT 50 
+        ];
     }
 
+    @AuraEnabled(Cacheable=true)
     public static Opportunity[] getAllConfirmedVenues(){
         return [
             SELECT
@@ -70,6 +75,7 @@ public with sharing class ProjectController {
             WHERE Project_Type__c = 'Exhibition Venue' AND StageName != 'In Conversation' AND StageName != 'Canceled' AND StageName != 'Ineligible'
             ORDER BY Name
             LIMIT 50 
+        ];
     }
 
 }

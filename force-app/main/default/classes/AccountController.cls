@@ -11,7 +11,6 @@ public with sharing class AccountController {
             ORDER BY Name
             LIMIT 50 // this is okay to keep for tests, but will need to remove later.
         ];
-    // public AccountController() {
 
-    // }
+}
 }
