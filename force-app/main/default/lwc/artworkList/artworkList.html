@@ -3,7 +3,6 @@
         <div class="slds-m-around_medium slds-scrollable_y" style="height:20rem">          
                 <lightning-layout multiple-rows="true" class="slds-var-p-horizontal slds-grid_vertical-align-center">
                     <template for:each={artworks.data} for:item="artwork">
-
                     <lightning-layout-item size="3" key={artwork.Id} class="slds-var-p-around_x-small">
                         <lightning-card>
                             <img src={artwork.Artwork_URL__c} alt="Artwork Image">

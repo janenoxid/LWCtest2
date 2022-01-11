@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Current Artwork Locations" icon-name="standard:activation_target">
+        <ul class="slds-m-around_medium">
+            <template for:each={artworkLocations.data} for:item="artworkLocation">
+                <li key={artworkLocation.Id}>
+                    <p><b><em>{artworkLocation.Artwork__r.Name}</em>, {artworkLocation.Artist_Name__c}</b>: 
+                    {artworkLocation.Account__r.Name}, {artworkLocation.Account__r.Location__c}: {artworkLocation.StartDate__c} to {artworkLocation.EndDate__c} ({artworkLocation.Status__c})</p>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
