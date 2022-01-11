@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Artwork" icon-name="utility:image">
+        <ul class="slds-m-around_medium">
+            <template for:each={artworks.data} for:item="artwork">
+                <li key={artwork.Id}>
+                    <b>{artwork.Name}</b>, {artwork.Artist_Full_Name__c}
+                    <p>{artwork.StartDate__c} to {artwork.EndDate__c} ({artwork.Status__c})</p>
+                    <p>{artwork.Artwork_Image_Small__c}</p>
+                </li>
+            </template>
+        </ul>
+    </lightning-card>
+</template>
