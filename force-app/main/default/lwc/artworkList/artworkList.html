@@ -1,13 +1,18 @@
 <template>
     <lightning-card title="Artwork" icon-name="utility:image">
-        <ul class="slds-m-around_medium">
-            <template for:each={artworks.data} for:item="artwork">
-                <li key={artwork.Id}>
-                    <b>{artwork.Name}</b>, {artwork.Artist_Full_Name__c}
-                    <p>{artwork.StartDate__c} to {artwork.EndDate__c} ({artwork.Status__c})</p>
-                    <p>{artwork.Artwork_Image_Small__c}</p>
-                </li>
-            </template>
-        </ul>
+        <div class="slds-m-around_medium slds-scrollable_y" style="height:20rem">          
+                <lightning-layout multiple-rows="true" class="slds-var-p-horizontal">
+                    <template for:each={artworks.data} for:item="artwork">
+
+                    <lightning-layout-item size="3" key={artwork.Id} class="slds-var-p-around_x-small">
+                        <lightning-card>
+                            <img src={artwork.Artwork_URL__c} alt="Artwork Image">
+                            <p><em>{artwork.Name}</em> <br/> {artwork.Artist_Full_Name__c}</p>
+                        </lightning-card>
+                    </lightning-layout-item>
+                </template>
+                </lightning-layout>
+
+        </div>
     </lightning-card>
 </template>

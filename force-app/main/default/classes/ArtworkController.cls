@@ -13,6 +13,7 @@ public with sharing class ArtworkController {
                 Days_on_View2__c,
                 Dimensions__c,
                 Location__c,
+                Artwork_URL__c,
                 Owned_by_ArtBridges__c
             FROM Artwork__c
             ORDER BY Artist_Last_Name__c
@@ -35,7 +36,8 @@ public with sharing class ArtworkController {
                 Days_on_View2__c,
                 Dimensions__c,
                 Location__c,
-                Owned_by_ArtBridges__c
+                Owned_by_ArtBridges__c,
+                Artwork_URL__c
             FROM Artwork__c
             WHERE Owned_by_ArtBridges__c = true
             ORDER BY Artist_Last_Name__c
