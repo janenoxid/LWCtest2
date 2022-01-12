@@ -49,4 +49,5 @@ public with sharing class ArtworkLocationController {
             LIMIT 20
         ];
     }
+
 }
