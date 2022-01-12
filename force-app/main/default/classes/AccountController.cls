@@ -9,6 +9,8 @@ public with sharing class AccountController {
                 Tax_Exempt_State__c, 
                 Partner_Status__c, 
                 Date_of_Partnership__c,
+                ShippingLongitude,
+                ShippingLatitude,
                 Region__c
             FROM Account
             ORDER BY Name
@@ -26,6 +28,8 @@ public with sharing class AccountController {
                 Location__c,
                 Tax_Exempt_State__c, 
                 Date_of_Partnership__c,
+                ShippingLongitude,
+                ShippingLatitude,
                 Region__c
             FROM Account
             WHERE Partner_Status__c = 'Partner'
